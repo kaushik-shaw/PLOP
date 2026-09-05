@@ -1,5 +1,6 @@
 import { useState, useMemo, useEffect } from "react";
-import { Download, Search, Filter } from "lucide-react";
+import { Download, Search, Filter, FileSpreadsheet, UserPlus, Sliders } from "lucide-react";
+import { Link } from "react-router-dom";
 import * as XLSX from "xlsx";
 import { Button } from "../components/ui/button";
 import {
@@ -83,14 +84,36 @@ export default function HomePage() {
     <div className="min-h-screen bg-background">
       <div className="container mx-auto py-8 px-4">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold tracking-tight mb-2">
-           Data Dashboard
-          </h1>
-          <p className="text-muted-foreground text-lg">
-            View and analyze data with advanced filtering and export
-            capabilities.
-          </p>
+        <div className="mb-8 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+          <div>
+            <h1 className="text-4xl font-bold tracking-tight mb-2">
+              Data Dashboard
+            </h1>
+            <p className="text-muted-foreground text-lg">
+              View and analyze data with advanced filtering and export
+              capabilities.
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/mapped-sheet">
+                <FileSpreadsheet className="h-4 w-4" />
+                Mapped Sheet
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/hr-entry">
+                <UserPlus className="h-4 w-4" />
+                HR Entry
+              </Link>
+            </Button>
+            <Button asChild variant="outline" className="gap-2">
+              <Link to="/params">
+                <Sliders className="h-4 w-4" />
+                Params
+              </Link>
+            </Button>
+          </div>
         </div>
 
         {/* Filters and Controls */}
